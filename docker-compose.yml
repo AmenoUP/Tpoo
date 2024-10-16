@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tpoo_dev
+    restart: always
+
+  backend:
+    build:
+      context: ./tpoo
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=tpoo_dev
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=db
+  frontend:
+    build:
+      context: ./Tpoo-vue
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+
+
+volumes:
+  postgres_data:
