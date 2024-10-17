@@ -1,8 +1,8 @@
-
+const path = 'https://tpoo.onrender.com/'
 
 export async function fetchUserById(id) {
     try {
-      const response = await fetch(`http://localhost:4000/api/users/${id}`);
+      const response = await fetch(`${path}api/users/${id}`);
       if (!response.ok) {
         throw new Error('Erreur lors de la récupération de l\'utilisateur');
       }
@@ -17,7 +17,7 @@ export async function fetchUserById(id) {
   
   export async function fetchUsers() {
     try {
-      const response = await fetch('http://localhost:4000/api/users');
+      const response = await fetch(`${path}api/users`);
       if (!response.ok) {
         throw new Error('Erreur lors de la récupération des utilisateurs');
       }
@@ -30,7 +30,7 @@ export async function fetchUserById(id) {
   
   export async function createUser(userData) {
     try {
-      const response = await fetch('http://localhost:4000/api/users', {
+      const response = await fetch(`${path}api/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export async function fetchUserById(id) {
   
   export async function deleteUser(userId) {
     try {
-      const response = await fetch(`http://localhost:4000/api/users/${userId}`, {
+      const response = await fetch(`${path}api/users/${userId}`, {
         method: 'DELETE',
       });
   
@@ -66,7 +66,7 @@ export async function fetchUserById(id) {
   
   export async function updateUser(userId, updatedUserData) {
     try {
-      const response = await fetch(`http://localhost:4000/api/users/${userId}`, {
+      const response = await fetch(`${path}api/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
