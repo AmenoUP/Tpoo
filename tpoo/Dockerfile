@@ -12,6 +12,8 @@ WORKDIR /app
  
 # Copy the application files
 COPY . .
+
+EXPOSE 4000
  
 # Install Hex and Rebar
 RUN mix local.hex --force && \
