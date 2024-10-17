@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vitev --host",
+    "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview --host --port $PORT",
+    "start": "vite preview --host --port $PORT",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "serve": "vite --host"
