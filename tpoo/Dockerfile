@@ -13,6 +13,8 @@ WORKDIR /app
 # Copy the application files
 COPY . .
 
+COPY tpoo\priv\cert\selfsigned.pem  /app/selfsigned.pem
+
 EXPOSE 4000
  
 # Install Hex and Rebar
