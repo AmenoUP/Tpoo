@@ -18,3 +18,12 @@ config :logger, level: :info
 
 # Runtime production configuration, including reading
 # of environment variables, is done on config/runtime.exs.
+
+config :tpoo, Tpoo.Repo,
+  username: "tpoo_dev_user",
+  password: "m9NZwgZaeNqanCsZPPAuYCh9SjEHMwju",
+  database: "tpoo_dev",
+  hostname: "dpg-cs8c5oe8ii6s73c82bbg-a.frankfurt-postgres.render.com",
+  ssl: true,
+  ssl_opts: [verify: :verify_none],
+  pool_size: 10
