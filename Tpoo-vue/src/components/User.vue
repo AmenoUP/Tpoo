@@ -18,27 +18,17 @@ const filteredUsers = computed(() =>
 );
 
 // Chargement des utilisateurs
-// async function loadUsers() {
-//   const userData = await fetchUsers();
-//   if (userData && Array.isArray(userData)) {
-//     users.splice(0, users.length, ...userData.map(user => ({
-//       id: user.id,
-//       username: user.username,
-//       email: user.email,
-//     })));
-//   }
-// }
-
-// Chargement des utilisateurs avec des données fictives
 async function loadUsers() {
-  const userData = [
-    { id: 1, username: 'JohnDoe', email: 'john@example.com' },
-    { id: 2, username: 'JaneSmith', email: 'jane@example.com' },
-    { id: 3, username: 'AlexBrown', email: 'alex@example.com' }
-  ];
-  
-  users.splice(0, users.length, ...userData);
+  const userData = await fetchUsers();
+  if (userData && Array.isArray(userData)) {
+    users.splice(0, users.length, ...userData.map(user => ({
+      id: user.id,
+      username: user.username,
+      email: user.email,
+    })));
+  }
 }
+
 
 
 // Création d'un nouvel utilisateur
