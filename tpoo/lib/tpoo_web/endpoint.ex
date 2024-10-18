@@ -1,6 +1,6 @@
 defmodule TpooWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :tpoo
-  plug CORSPlug, origin: ["http://localhost:8080"]
+  plug CORSPlug, origin: ["https://tpoo-vue.onrender.com"]
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
