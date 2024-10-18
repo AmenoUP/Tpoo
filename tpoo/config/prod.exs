@@ -20,7 +20,7 @@ config :logger, level: :info
 # of environment variables, is done on config/runtime.exs.
 
 config :your_app, YourAppWeb.Endpoint,
-  http: [port: String.to_integer(System.get_env("PORT") || "4000")]
+  http: [port: String.to_integer(System.get_env("PORT") || "4000")],
   url: [host: "https://tpoo.onrender.com/", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true  # This makes sure the Phoenix server is started
