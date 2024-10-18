@@ -21,6 +21,9 @@ config :logger, level: :info
 
 config :your_app, YourAppWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT") || "4000")]
+  url: [host: "https://tpoo.onrender.com/", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true  # This makes sure the Phoenix server is started
 
 config :tpoo, Tpoo.Repo,
   username: "tpoo_dev_user",
