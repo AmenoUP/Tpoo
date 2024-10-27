@@ -35,4 +35,3 @@ tpoo-*.tar
 npm-debug.log
 /assets/node_modules/
 
-mix.lock

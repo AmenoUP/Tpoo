@@ -1,7 +1,6 @@
 defmodule TpooWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :tpoo
-  plug CORSPlug, origin: ["https://tpoo-vue.onrender.com"]
-
+  plug CORSPlug, origin: ["*"], methods: ["GET", "POST", "PUT", "DELETE"]
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
@@ -49,6 +48,7 @@ defmodule TpooWeb.Endpoint do
 
   plug Plug.MethodOverride
   plug Plug.Head
+  plug CORSPlug, origin: ["*"], methods: ["GET", "POST", "PUT", "DELETE"]
   plug Plug.Session, @session_options
   plug TpooWeb.Router
 end

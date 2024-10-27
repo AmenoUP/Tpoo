@@ -4,19 +4,29 @@ defmodule Tpoo.AccountsFixtures do
   entities via the `Tpoo.Accounts` context.
   """
 
-  @doc """
-  Generate a user.
-  """
+  def unique_user_email, do: "user#{System.unique_integer()}@example.com"
+  def valid_user_password, do: "hello world!"
+
+  def valid_user_attributes(attrs \\ %{}) do
+    Enum.into(attrs, %{
+      email: unique_user_email(),
+      password: valid_user_password()
+    })
+  end
+
   def user_fixture(attrs \\ %{}) do
     {:ok, user} =
       attrs
-      |> Enum.into(%{
-        email: "some email",
-        username: "some username"
-      })
-      |> Tpoo.Accounts.create_user()
+      |> valid_user_attributes()
+      |> Tpoo.Accounts.register_user()
 
     user
+  end
+
+  def extract_user_token(fun) do
+    {:ok, captured_email} = fun.(&"[TOKEN]#{&1}[TOKEN]")
+    [_, token | _] = String.split(captured_email.text_body, "[TOKEN]")
+    token
   end
 
   @doc """
@@ -26,26 +36,10 @@ defmodule Tpoo.AccountsFixtures do
     {:ok, clock} =
       attrs
       |> Enum.into(%{
-        status: true,
-        time: ~U[2024-10-07 10:36:00Z]
+
       })
       |> Tpoo.Accounts.create_clock()
 
     clock
-  end
-
-  @doc """
-  Generate a workingtime.
-  """
-  def workingtime_fixture(attrs \\ %{}) do
-    {:ok, workingtime} =
-      attrs
-      |> Enum.into(%{
-        end: ~U[2024-10-07 10:39:00Z],
-        start: ~U[2024-10-07 10:39:00Z]
-      })
-      |> Tpoo.Accounts.create_workingtime()
-
-    workingtime
   end
 end

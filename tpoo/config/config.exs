@@ -20,7 +20,7 @@ config :tpoo, TpooWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Tpoo.PubSub,
-  live_view: [signing_salt: "uHDRkiew"]
+  live_view: [signing_salt: "2g0e0mGf"]
 
 # Configures the mailer
 #

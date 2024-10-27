@@ -1,45 +1,35 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
-import { fetchUserById } from './repository/UserRepository' 
+import { RouterView } from 'vue-router'
+import { fetchUserById } from './repository/UserRepository'
+import Navbar from './components/Navbar.vue'
 
-const connectedUser = ref({ username: '', email: '' });
+const connectedUser = ref({ username: '', email: '' })
 
 onMounted(async () => {
-  const loggedInUserId = '1'; // Remplacez par l'ID réel de l'utilisateur connecté
+  const loggedInUserId = '1' // Remplacez par l'ID réel de l'utilisateur connecté
   try {
-    const user = await fetchUserById(loggedInUserId); // Récupération de l'utilisateur
+    const user = await fetchUserById(loggedInUserId) // Récupération de l'utilisateur
 
     // Vérification que l'utilisateur existe et qu'il a bien les propriétés attendues
     if (user && user.data) {
-      connectedUser.value = { 
-        username: user.data.username, 
-        email: user.data.email 
-      }; // Mise à jour des données
-      console.log('Utilisateur récupéré :', connectedUser.value);
+      connectedUser.value = {
+        username: user.data.username,
+        email: user.data.email
+      } // Mise à jour des données
+      console.log('Utilisateur récupéré :', connectedUser.value)
     } else {
-      console.warn('Aucun utilisateur trouvé ou données incomplètes.');
+      console.warn('Aucun utilisateur trouvé ou données incomplètes.')
     }
   } catch (error) {
-    console.error('Erreur lors de la récupération de l\'utilisateur :', error);
+    console.error("Erreur lors de la récupération de l'utilisateur :", error)
   }
-});
-
+})
 </script>
 
 <template>
   <header>
-
-    <div class="nav-wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/user">user</RouterLink>
-        <RouterLink to="/chartManager">Charts Manager</RouterLink>
-        <RouterLink to="/workingTimes">WorkingTimes</RouterLink>
-        <RouterLink to="/clock">Clocks Manager</RouterLink>
-      </nav>
-    </div>
+    <Navbar> </Navbar>
   </header>
   <RouterView />
 </template>
@@ -56,10 +46,6 @@ nav {
   justify-content: space-between;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
 nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
@@ -67,7 +53,7 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  border-left: 1px solid;
 }
 
 nav a:first-of-type {

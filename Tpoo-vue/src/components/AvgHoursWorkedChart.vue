@@ -1,6 +1,6 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue'
-import { Bar, Line, Pie, Radar } from 'vue-chartjs'
+import { ref, onMounted, computed, watch } from 'vue'
+import { Bar, Line, Radar } from 'vue-chartjs'
 import {
   Chart as ChartJS,
   Title,
@@ -43,7 +43,7 @@ const props = defineProps({
 })
 
 // Les types de graphiques disponibles
-const chartTypes = ['Bar', 'Line', 'Pie', 'Radar']
+const chartTypes = ['Bar', 'Line', 'Radar']
 const selectedChartType = ref('Bar') // Type de graphique par défaut
 
 // Composant dynamique selon le type de graphique sélectionné
@@ -51,8 +51,6 @@ const chartComponent = computed(() => {
   switch (selectedChartType.value) {
     case 'Line':
       return Line
-    case 'Pie':
-      return Pie
     case 'Radar':
       return Radar
     default:
@@ -66,24 +64,27 @@ const chartData = ref({
   datasets: [
     {
       label: 'Average Hours Worked',
-      backgroundColor: '#FFC107',
-      borderColor: '#FF8C00',
+      backgroundColor: '#FFC107', // Couleur de fond
+      borderColor: '#FF8C00', // Couleur de bordure
       data: []
     }
   ]
 })
 
 // Options du graphique
-const chartOptions = {
+const chartOptions = computed(() => ({
   responsive: true,
-  maintainAspectRatio: true
-}
-
-// Fonction exécutée lorsque le composant est monté
-onMounted(async () => {
-  const data = await getWorkingTimes(props.userId)
-  updateChartData(data)
-})
+  maintainAspectRatio: true, // Pour maintenir le ratio lors du redimensionnement
+  aspectRatio: window.innerWidth < 600 ? 1 : 2, // Ratio adapté aux petits écrans
+  scales: {
+    x: {
+      beginAtZero: true
+    },
+    y: {
+      beginAtZero: true
+    }
+  }
+}))
 
 // Fonction pour mettre à jour les données du graphique
 function updateChartData(data) {
@@ -106,7 +107,6 @@ function updateChartData(data) {
 
   // Mise à jour réactive des labels et des datasets
   chartData.value = {
-    ...chartData.value,
     labels: Object.keys(avgHoursByMonth),
     datasets: [
       {
@@ -120,19 +120,78 @@ function updateChartData(data) {
 
   console.log('Données mises à jour:', chartData.value)
 }
+
+// Fonction pour récupérer les données d'utilisateur
+async function fetchUserData(userId) {
+  const data = await getWorkingTimes(userId)
+  updateChartData(data)
+}
+
+// Récupérer les données lors du montage initial
+onMounted(async () => {
+  if (props.userId) {
+    await fetchUserData(props.userId)
+  }
+})
+
+// Surveiller les changements d'ID utilisateur et mettre à jour les données en conséquence
+watch(
+  () => props.userId,
+  async (newUserId) => {
+    if (newUserId) {
+      await fetchUserData(newUserId)
+    }
+  }
+)
 </script>
 
 <template>
-  <h3>Average Hours Worked per Day</h3>
-
   <!-- Sélecteur pour changer le type de graphique -->
-  <label for="chartType">Choose Chart Type: </label>
-  <select v-model="selectedChartType" id="chartType">
-    <option v-for="type in chartTypes" :key="type" :value="type">{{ type }}</option>
-  </select>
+  <div class="chart-controls">
+    <select v-model="selectedChartType" class="form-select chart-select" id="chartType">
+      <option v-for="type in chartTypes" :key="type" :value="type">{{ type }}</option>
+    </select>
+  </div>
 
-  <!-- Composant de graphique dynamique -->
-  <component :is="chartComponent" :data="chartData" :options="chartOptions" />
+  <!-- Conteneur pour le graphique avec une classe CSS pour la taille -->
+  <div class="chart-container">
+    <!-- Composant de graphique dynamique -->
+    <component :is="chartComponent" :data="chartData" :options="chartOptions" />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.chart-container {
+  width: 100%;
+  max-width: 70%;
+  margin: 20px auto;
+}
+
+.chart-controls {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.chart-select {
+  width: 150px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .chart-container {
+    max-width: 90%;
+  }
+
+  .chart-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chart-select {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+</style>

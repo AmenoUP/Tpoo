@@ -15,12 +15,13 @@ dist-ssr
 coverage
 *.local
 mix.lock
-
+package.json
 
 /cypress/videos/
 /cypress/screenshots/
 
 # Editor directories and files
+.vscode
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -31,3 +32,22 @@ mix.lock
 *.sw?
 
 *.tsbuildinfo
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js
+
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js
+
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js
+
+# Cordova
+/src-cordova/platforms
+/src-cordova/plugins
+/public/cordova.js

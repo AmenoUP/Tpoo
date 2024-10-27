@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { BButton, BModal, BTable, BFormInput } from 'bootstrap-vue-next'
+import { BButton, BModal, BFormInput } from 'bootstrap-vue-next'
 import {
   getWorkingTimes,
   deleteWorkingTime,
@@ -9,7 +9,8 @@ import {
   addWorkingTime
 } from '../repository/WorkingTimeRepository'
 
-const userId = ref(3)
+const route = useRoute()
+const userId = ref(route.params.userId) // Récupérer l'ID de l'utilisateur à partir des paramètres de la route
 const workingTimes = ref([])
 const isCreateModalVisible = ref(false)
 const isEditModalVisible = ref(false)
@@ -31,7 +32,7 @@ const formatDateTime = (dateTime) => {
   return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`
 }
 
-const fields = ['id', 'start', 'end', 'user_id', { key: 'actions', label: 'Actions' }]
+// const fields = ['id', 'start', 'end', 'user_id', { key: 'actions', label: 'Actions' }]
 
 const fetchWorkingTimes = async () => {
   try {
@@ -113,20 +114,21 @@ const updateAWorkingTime = async () => {
 }
 
 onMounted(async () => {
-  const route = useRoute()
-  if (route.params.userID) {
-    userId.value = route.params.userID
-  }
   await fetchWorkingTimes()
 })
 </script>
-<template>
-  <div class="container">
-    <h1>Working Times</h1>
-    <b-button @click="showCreateModal">Create a WorkingTime</b-button>
 
+<template>
+  <div class="mt-2 text-center">
+    <h1>Working Times</h1>
+  </div>
+  <div class="m-3">
+    <b-button @click="showCreateModal">Create a WorkingTime</b-button>
+  </div>
+  <div class="container">
     <!-- Create Modal -->
     <b-modal
+      class="black"
       v-model="isCreateModalVisible"
       title="Create a New Working Time"
       @close="closeCreateModal"
@@ -134,8 +136,7 @@ onMounted(async () => {
       hide-footer
     >
       <template #modal-header>
-        <h3>Create a New Working Time</h3>
-        <b-button variant="close" @click="closeCreateModal">x</b-button>
+        <p>Create a New Working Time</p>
       </template>
       <b-form-input
         v-model="newWorkingTime.start"
@@ -149,7 +150,7 @@ onMounted(async () => {
         placeholder="End Date"
       ></b-form-input>
       <div class="d-flex justify-content-end mt-2 w-100">
-        <b-button class="text-center" variant="primary" @click="saveWorkingTime">Save</b-button>
+        <b-button class="text-center custom-create-btn" @click="saveWorkingTime">Save</b-button>
       </div>
     </b-modal>
 
@@ -176,20 +177,39 @@ onMounted(async () => {
         placeholder="End Date"
       ></b-form-input>
       <div class="d-flex justify-content-end mt-2 w-100">
-        <b-button variant="primary" @click="updateAWorkingTime">Save</b-button>
+        <b-button class="custom-create-btn" @click="updateAWorkingTime">Save</b-button>
       </div>
     </b-modal>
 
-    <b-table class="text-center mt-3" striped hover :items="workingTimes" :fields="fields">
-      <template #cell(actions)="data">
-        <div class="d-flex align-items-center justify-content-center">
-          <b-button class="m-1" size="sm" @click="showEditModal(data.item)">Edit</b-button>
-          <b-button class="m-1" size="sm" variant="danger" @click="handleDelete(data.item.id)"
-            >Delete</b-button
-          >
-        </div>
-      </template>
-    </b-table>
+    <table class="table table-dark table-striped table-hover m-0 mt-3">
+      <thead>
+        <tr class="text-center">
+          <th>ID</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>User ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" v-for="workingTime in workingTimes" :key="workingTime.id">
+          <td>{{ workingTime.id }}</td>
+          <td>{{ workingTime.start }}</td>
+          <td>{{ workingTime.end }}</td>
+          <td>{{ workingTime.user_id }}</td>
+          <td>
+            <div class="d-flex align-items-center justify-content-center">
+              <button class="custom-edit-btn" @click="showEditModal(workingTime)">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn custom-delete-btn m-1" @click="handleDelete(workingTime.id)">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -200,5 +220,103 @@ onMounted(async () => {
 }
 h1 {
   text-align: center;
+}
+
+.table-dark {
+  background-color: #343a40; /* Dark background */
+  color: #f8f9fa; /* Light text for contrast */
+}
+
+.table-dark tbody tr:nth-child(odd) {
+  background-color: #495057; /* Darker gray for odd rows */
+}
+
+.table-dark tbody tr:nth-child(even) {
+  background-color: #6c757d; /* Lighter gray for even rows */
+}
+
+.table-dark thead {
+  background-color: #212529; /* Very dark gray for the header */
+  color: #fff; /* White text for header */
+}
+
+.table-dark th,
+.table-dark td {
+  border-color: #6c757d; /* Gray borders to blend with the table */
+}
+
+/* Hover effect for table rows */
+.table-dark tbody tr:hover {
+  background-color: #3a3a3a; /* Couleur de survol */
+}
+
+.custom-edit-btn,
+.custom-delete-btn,
+.custom-create-btn {
+  border-radius: 10px;
+}
+
+.custom-edit-btn {
+  background-color: #2d5531;
+  color: white;
+}
+
+.custom-edit-btn:hover {
+  background-color: rgb(27, 100, 42);
+}
+
+.custom-delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.custom-delete-btn:hover {
+  background-color: #c82333;
+}
+
+.custom-edit-btn,
+.custom-delete-btn {
+  padding: 5px;
+  border: none;
+  background-color: transparent; /* Pour enlever le fond des boutons */
+  cursor: pointer;
+}
+
+.custom-edit-btn i,
+.custom-delete-btn i {
+  font-size: 1.2rem; /* Ajustez la taille des icônes ici */
+  color: #007bff; /* Couleur pour le crayon (modifier) */
+}
+
+.custom-delete-btn i {
+  color: #dc3545; /* Couleur pour la poubelle (supprimer) */
+}
+
+.custom-create-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.custom-create-btn:hover {
+  background-color: #0056b3;
+}
+
+td,
+th {
+  text-align: center;
+}
+
+/* Styles personnalisés pour la modale */
+.custom-modal {
+  background-color: rgb(50, 48, 48);
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header,
+.modal-footer {
+  border-bottom: 1px solid #dee2e6;
 }
 </style>

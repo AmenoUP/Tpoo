@@ -3,6 +3,7 @@ defmodule TpooWeb.UserController do
 
   alias Tpoo.Accounts
   alias Tpoo.Accounts.User
+  alias Tpoo.Repo
 
   action_fallback TpooWeb.FallbackController
 

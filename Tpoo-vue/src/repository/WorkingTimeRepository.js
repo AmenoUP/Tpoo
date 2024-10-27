@@ -1,5 +1,8 @@
 const path = 'http://localhost:4000/api/workingtime'
 
+// mobile = 10.0.2.2
+// web = localhost:4000
+
 export const getWorkingTimes = async (userId) => {
   try {
     const response = await fetch(`${path}/${userId}`)

@@ -19,7 +19,10 @@ defmodule TpooWeb.UserJSON do
     %{
       id: user.id,
       username: user.username,
-      email: user.email
+      email: user.email,
+      is_admin: user.is_admin,
+      is_manager: user.is_manager,
+      password: user.password
     }
   end
 end

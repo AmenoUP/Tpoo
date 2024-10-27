@@ -9,8 +9,8 @@ WORKDIR /app
 # copy both 'package.json' and 'package-lock.json' (if available)
 COPY package*.json ./
 
-# install project dependencies
-RUN npm install
+# install project dependencies with legacy-peer-deps option
+RUN npm install --legacy-peer-deps
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
@@ -18,6 +18,5 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-EXPOSE 8080
 
-CMD [ "http-server", "dist" ]
+CMD ["http-server", "dist"]
