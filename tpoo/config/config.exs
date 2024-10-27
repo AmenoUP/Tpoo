@@ -13,7 +13,7 @@ config :tpoo,
 
 # Configures the endpoint
 config :tpoo, TpooWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "dpg-cs8c5oe8ii6s73c82bbg-a.frankfurt-postgres.render.com", port: 443], # Modifiez l'hôte ici
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: TpooWeb.ErrorHTML, json: TpooWeb.ErrorJSON],
