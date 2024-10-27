@@ -1,4 +1,4 @@
-const path = 'http://localhost:4000/api/tickets'
+const path =  'https://tpoo.onrender.com/api/tickets'
 
 export async function fetchTicketById(id) {
   try {

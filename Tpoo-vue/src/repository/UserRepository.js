@@ -1,4 +1,4 @@
-const path = 'https://tpoo.onrender.com/'
+const path = 'https://tpoo.onrender.com/api/users'
 
 // mobile = 10.0.2.2
 // web = localhost:4000

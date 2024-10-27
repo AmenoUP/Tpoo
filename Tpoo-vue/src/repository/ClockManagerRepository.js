@@ -1,4 +1,4 @@
-const path = 'http://localhost:4000/api/clocks'
+const path = 'https://tpoo.onrender.com/api/clocks'
 
 // mobile = 10.0.2.2
 // web = localhost:4000
