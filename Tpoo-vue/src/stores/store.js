@@ -4,7 +4,7 @@ import { createStore } from 'vuex'; // Modifie cette ligne
 const store = createStore({ // Change `new Vuex.Store` par `createStore`
   state: {
     isAuthenticated: true,
-    isManager: false,
+    isManager: true,
     isAdmin: true,
   },
   mutations: {
