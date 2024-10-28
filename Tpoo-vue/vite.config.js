@@ -14,11 +14,7 @@ export default defineConfig({
     }
   },
   build: {
-      outDir: './src-cordova/www', // Répertoire où Vite générera le build
+      outDir: './src-cordova/www/index.html', // Répertoire où Vite générera le build
       emptyOutDir: true // Nettoie le répertoire de destination avant le build
-    },
-    server: {
-      host: true, // permet de lier à 0.0.0.0
-      port: 5173, // ou tout autre port que vous préférez
-    },
+    }
 })

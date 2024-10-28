@@ -30,10 +30,9 @@ services:
       context: ./Tpoo-vue
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8081:8081"
     depends_on:
       - backend
-
 
 volumes:
   postgres_data:

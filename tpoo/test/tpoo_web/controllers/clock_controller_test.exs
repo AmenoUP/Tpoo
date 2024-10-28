@@ -6,12 +6,14 @@ defmodule TpooWeb.ClockControllerTest do
   alias Tpoo.Accounts.Clock
 
   @create_attrs %{
-
+    status: true,
+    time: ~U[2024-10-07 10:36:00Z]
   }
   @update_attrs %{
-
+    status: false,
+    time: ~U[2024-10-08 10:36:00Z]
   }
-  @invalid_attrs %{}
+  @invalid_attrs %{status: nil, time: nil}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
@@ -32,7 +34,9 @@ defmodule TpooWeb.ClockControllerTest do
       conn = get(conn, ~p"/api/clocks/#{id}")
 
       assert %{
-               "id" => ^id
+               "id" => ^id,
+               "status" => true,
+               "time" => "2024-10-07T10:36:00Z"
              } = json_response(conn, 200)["data"]
     end
 
@@ -52,7 +56,9 @@ defmodule TpooWeb.ClockControllerTest do
       conn = get(conn, ~p"/api/clocks/#{id}")
 
       assert %{
-               "id" => ^id
+               "id" => ^id,
+               "status" => false,
+               "time" => "2024-10-08T10:36:00Z"
              } = json_response(conn, 200)["data"]
     end
 

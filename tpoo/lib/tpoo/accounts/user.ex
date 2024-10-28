@@ -3,10 +3,7 @@ defmodule Tpoo.Accounts.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :name, :string
-    field :surname, :string
     field :username, :string
-
     field :email, :string
     field :is_admin, :boolean, default: false
     field :is_manager, :boolean, default: false
@@ -15,6 +12,7 @@ defmodule Tpoo.Accounts.User do
     timestamps(type: :utc_datetime)
   end
 
+  @doc false
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:username, :email, :is_admin, :is_manager, :password])

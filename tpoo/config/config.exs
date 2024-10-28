@@ -13,14 +13,14 @@ config :tpoo,
 
 # Configures the endpoint
 config :tpoo, TpooWeb.Endpoint,
-  url: [host: "dpg-cs8c5oe8ii6s73c82bbg-a.frankfurt-postgres.render.com", port: 443], # Modifiez l'hôte ici
+  url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: TpooWeb.ErrorHTML, json: TpooWeb.ErrorJSON],
     layout: false
   ],
   pubsub_server: Tpoo.PubSub,
-  live_view: [signing_salt: "2g0e0mGf"]
+  live_view: [signing_salt: "uHDRkiew"]
 
 # Configures the mailer
 #

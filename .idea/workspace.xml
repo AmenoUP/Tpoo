@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfc63f1e-8a41-4190-bb5f-f56b40e736be" name="Changes" comment="">
+<<<<<<< Updated upstream
+      <change afterPath="$PROJECT_DIR$/.env.mobile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tpoo-vue/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tpoo-vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tpoo-vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src-cordova/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/src-cordova/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src/repository/UserRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/src/repository/UserRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tpoo/config/dev.exs" beforeDir="false" afterPath="$PROJECT_DIR$/tpoo/config/dev.exs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tpoo/lib/tpoo_web/endpoint.ex" beforeDir="false" afterPath="$PROJECT_DIR$/tpoo/lib/tpoo_web/endpoint.ex" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src-cordova/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src-cordova/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src-cordova/www/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src/components/User.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/src/components/User.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/src/repository/UserRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/src/repository/UserRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tpoo-vue/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tpoo-vue/vue.config.js" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -36,28 +60,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Debor/OneDrive/Bureau/EPITECH/2024/Projets/T-POO-700-BDX_3",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;AnalyzeApkAction.lastApkPath&quot;: &quot;C:/Users/morin/Bureau/T-POO-700-BDX_3/tpoo-mobile&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/morin/Bureau/T-POO-700-BDX_3/tpoo-mobile/www&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\morin\Bureau\T-POO-700-BDX_3\tpoo-mobile\www" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\morin\Bureau\T-POO-700-BDX_3\tpoo-mobile\www" />
+      <recent name="C:\Users\morin\Bureau\T-POO-700-BDX_3\tpoo-mobile\www\dist" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="T-POO-700-BDX_3" />

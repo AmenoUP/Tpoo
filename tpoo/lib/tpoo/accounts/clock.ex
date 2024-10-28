@@ -3,15 +3,17 @@ defmodule Tpoo.Accounts.Clock do
   import Ecto.Changeset
 
   schema "clocks" do
+    field :status, :boolean, default: false
+    field :time, :utc_datetime_usec, default: DateTime.utc_now()
+    field :user_id, :id
 
-
-    timestamps(type: :utc_datetime)
+    timestamps(type: :utc_datetime_usec)
   end
 
   @doc false
   def changeset(clock, attrs) do
     clock
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:time, :status, :user_id])
+    |> validate_required([:status, :user_id])
   end
 end
