@@ -7,23 +7,23 @@ import Navbar from './components/Navbar.vue'
 const connectedUser = ref({ username: '', email: '' })
 
 onMounted(async () => {
-  const loggedInUserId = '1' // Remplacez par l'ID réel de l'utilisateur connecté
-  try {
-    const user = await fetchUserById(loggedInUserId) // Récupération de l'utilisateur
+  // const loggedInUserId = '1' // Remplacez par l'ID réel de l'utilisateur connecté
+  // try {
+  //   const user = await fetchUserById(loggedInUserId) // Récupération de l'utilisateur
 
-    // Vérification que l'utilisateur existe et qu'il a bien les propriétés attendues
-    if (user && user.data) {
-      connectedUser.value = {
-        username: user.data.username,
-        email: user.data.email
-      } // Mise à jour des données
-      console.log('Utilisateur récupéré :', connectedUser.value)
-    } else {
-      console.warn('Aucun utilisateur trouvé ou données incomplètes.')
-    }
-  } catch (error) {
-    console.error("Erreur lors de la récupération de l'utilisateur :", error)
-  }
+  //   // Vérification que l'utilisateur existe et qu'il a bien les propriétés attendues
+  //   if (user && user.data) {
+  //     connectedUser.value = {
+  //       username: user.data.username,
+  //       email: user.data.email
+  //     } // Mise à jour des données
+  //     console.log('Utilisateur récupéré :', connectedUser.value)
+  //   } else {
+  //     console.warn('Aucun utilisateur trouvé ou données incomplètes.')
+  //   }
+  // } catch (error) {
+  //   console.error("Erreur lors de la récupération de l'utilisateur :", error)
+  // }
 })
 </script>
 
